@@ -5,6 +5,9 @@
         {% load static %}
         {% load bootstrap3 %}
         {% bootstrap_css %}
+
+        <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+        {% bootstrap_javascript %}
     </head>
 
     <body>
@@ -24,7 +27,7 @@
                         <li><a href="#">Dashboard</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Login</a></li>
+                        <li><a href="/login" class="login-link">Login</a></li>
                         <li><a href="#">Register</a></li>
                     </ul>
 
@@ -32,7 +35,24 @@
             </div>
         </div>
         {% block content %}{% endblock content %}
-        <script type="text/javascript" src="{% static "js/jquery.js" %}" />
-        {% bootstrap_javascript %}
+
+        <div class="modal" id="modal-window">
+
+        </div>
+        <script type="text/javascript" src="{% static "js/document.load.js" %}"></script>
+         <script type="text/template" id="modal-template">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </script>
     </body>
 </html>

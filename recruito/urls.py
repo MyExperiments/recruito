@@ -17,8 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from rms.views import index as rms_home, login as rms_login
 
 urlpatterns = [
-	url('^rms/', include('rms.urls')),
+    url(r'^home$', rms_home, name='index'),
+    url(r'^login$', rms_login, name='login'),
+    url('^rms/', include('rms.urls')),
     url(r'^admin/', admin.site.urls)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
