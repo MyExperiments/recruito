@@ -2,9 +2,37 @@
 <html>
     <head>
         <title>Recruito</title>
+        {% load static %}
+        {% load bootstrap3 %}
+        {% bootstrap_css %}
     </head>
 
     <body>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand">Recruito</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
         {% block content %}{% endblock content %}
+        <script type="text/javascript" src="{% static "js/jquery.js" %}" />
+        {% bootstrap_javascript %}
     </body>
 </html>
