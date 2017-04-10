@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from rms.views import index as rms_home, login as rms_login
 
 urlpatterns = [
-    url(r'^home$', rms_home, name='index'),
+    url(r'^$', rms_home, name='index'),
     url(r'^login$', rms_login, name='login'),
     url('^rms/', include('rms.urls')),
     url(r'^admin/', admin.site.urls)

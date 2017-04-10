@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <form role="form" id="login-form">
-        <legend>Login</legend>
-        {% csrf_token %}
+{% load bootstrap3 %}
 
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+{% block content %}
+	<div class="col-lg-6">
+	    <form role="form" id="login-form" class="form-horizontal">
+	    	<fieldset>
+		        <legend>Login</legend>
+		        {% csrf_token %}
+		        <div class="form-group">
+	                {% bootstrap_field form.email %}
+              	</div>
+              	<div class="form-group">
+	                {% bootstrap_field form.password %}
+              	</div>
+		        <div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2">
+					 	<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+		    </fieldset>
+	    </form>
+	</div>
 {% endblock %}

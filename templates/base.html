@@ -5,6 +5,7 @@
         {% load static %}
         {% load bootstrap3 %}
         {% bootstrap_css %}
+        <link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}">
 
         <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
         {% bootstrap_javascript %}
@@ -34,11 +35,12 @@
                 </div>
             </div>
         </div>
-        {% block content %}{% endblock content %}
-
-        <div class="modal" id="modal-window">
-
+        <div class="container main-content">
+            <div class="row">
+                {% block content %}{% endblock content %}
+            </div>
         </div>
+        <div class="modal" id="modal-window"></div>
         <script type="text/javascript" src="{% static "js/document.load.js" %}"></script>
          <script type="text/template" id="modal-template">
             <div class="modal-dialog">
