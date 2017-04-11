@@ -16,12 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
-from django.conf.urls.static import static
-from rms.views import index as rms_home, login as rms_login
+from django.conf.urls.static import static;
+from rms.views.home_views import home as rms_home;
+from rms.views.login_views import login as rms_login;
 
 urlpatterns = [
-    url(r'^$', rms_home, name='index'),
-    url(r'^login$', rms_login, name='login'),
+    url(r'^$', rms_home, name='home'),
+    url('^accounts/', include('django.contrib.auth.urls')),
     url('^rms/', include('rms.urls')),
     url(r'^admin/', admin.site.urls)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
