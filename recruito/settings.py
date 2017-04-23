@@ -125,3 +125,5 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
+# Redirect to home page after successfull sign in
+LOGIN_REDIRECT_URL = 'home'

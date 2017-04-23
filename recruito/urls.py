@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static;
 from rms.views.home_views import home as rms_home;
-from rms.views.login_views import login as rms_login;
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^login/$', auth_views.login, name='login'),
     url(r'^$', rms_home, name='home'),
     url('^accounts/', include('django.contrib.auth.urls')),
     url('^rms/', include('rms.urls')),
