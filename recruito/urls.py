@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static;
 from rms.views.home_views import home as rms_home;
-from django.contrib.auth import views as auth_views
+from rms.views.dashboard_views import dashboard as rms_dashboard;
+from django.contrib.auth import views as auth_views;
 
 urlpatterns = [
-    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^login/$', auth_views.login, name='login', kwargs={'redirect_authenticated_user': True}),
     url(r'^$', rms_home, name='home'),
-    url('^accounts/', include('django.contrib.auth.urls')),
+    url(r'^dashboard/', rms_dashboard, name='dashboard'),
     url('^rms/', include('rms.urls')),
     url(r'^admin/', admin.site.urls)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

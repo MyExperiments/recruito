@@ -24,13 +24,21 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/rms/jobs">Jobs</a></li>
                     </ul>
+                    {% if user.is_authenticated %}
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login" class="login-link">Login</a></li>
+                        <li><a href="/login" class="login-link">{{ user.username }}</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                    {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="accounts/login" class="login-link">Login</a></li>
                         <li><a href="#">Register</a></li>
                     </ul>
+                    {% endif %}
 
                 </div>
             </div>

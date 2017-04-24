@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+RECRUITO_APPS = {'rms': 'rms'}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jquery',
-    'bootstrap3'
+    'bootstrap3',
+    RECRUITO_APPS['rms']
 ]
 
 MIDDLEWARE = [
