@@ -9,6 +9,3 @@ class AbstractBaseModel(models.Model):
     class Meta:
         abstract = True
         app_label = settings.RECRUITO_APPS['rms']
-
-    def __unicode__(self):
-        return self.name

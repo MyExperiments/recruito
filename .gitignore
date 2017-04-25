@@ -1,3 +1,9 @@
-*/__pycache__/*
+*.egg-info
+*.pot
+*.py[co]
+.tox/
+__pycache__
+rms/models/__pycache__/*
 rms/views/__pycache__/*
+rms/utils/__pycache__/*
 recruito/local_settings.py

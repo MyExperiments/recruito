@@ -8,19 +8,34 @@
 		<div class="bs-component">
 		    <div class="row">
 			    <div class="col-md-8">
+			    	{% for job in jobs %}
 			    	<div class="job-block">
 				    	<h3 class="text-primary">
-				    		IIT/NEET / Foundation course: Chemistry Instructor <br />
+				    	    {{ job.title }}<br />
 				    	</h3>
-				    	ConceptOwl- a Bansal Classes Venture - Thiruvananthapuram, Kerala
-						You will have the opportunity to shape the future of hundreds of students and also play a key role in what will be the biggest and most audacious initiative in... <br />
+				    	{{ job.description }} <br />
 						<span class="text-warning">
-							Apply securely with Indeed Resume <br />
+							Last Date: {{ job.last_date }} <br />
 						</span>
 						<span class="text-muted">
-							Sponsored - 2 days ago - save job <br />
+							Recruiter: {{ job.recruiter }} <br />
 						</span>
 						<hr>
+					</div>
+					{% endfor %}
+					<div class="pagination">
+					    <span class="step-links">
+					        {% if jobs.has_previous %}
+					            <a href="?page={{ jobs.previous_page_number }}">previous</a>
+					        {% endif %}
+					        <span class="current">
+					            Page {{ jobs.number }} of {{ jobs.paginator.num_pages }}.
+					        </span>
+
+					        {% if jobs.has_next %}
+					            <a href="?page={{ jobs.next_page_number }}">next</a>
+					        {% endif %}
+					    </span>
 					</div>
 			    </div>
 		    </div>

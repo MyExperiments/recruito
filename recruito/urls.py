@@ -24,6 +24,7 @@ from django.contrib.auth import views as auth_views;
 urlpatterns = [
     url(r'^login/$', auth_views.login, name='login', kwargs={'redirect_authenticated_user': True}),
     url(r'^$', rms_home, name='home'),
+    url(r'^home$', rms_home, name='home'),
     url(r'^dashboard/', rms_dashboard, name='dashboard'),
     url('^rms/', include('rms.urls')),
     url(r'^admin/', admin.site.urls)

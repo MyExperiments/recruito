@@ -84,7 +84,6 @@ DATABASES = {
     'default': local_settings.DEFAULT_DATABASE_CONFIG
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
