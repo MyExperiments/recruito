@@ -11,7 +11,7 @@
 			    	{% for job in jobs %}
 			    	<div class="job-block">
 				    	<h3 class="text-primary">
-				    	    {{ job.title }}<br />
+				    	    <a href="#">{{ job.title }}</a><br />
 				    	</h3>
 				    	{{ job.description }} <br />
 						<span class="text-warning">
@@ -29,7 +29,7 @@
 					            <a href="?page={{ jobs.previous_page_number }}">previous</a>
 					        {% endif %}
 					        <span class="current">
-					            Page {{ jobs.number }} of {{ jobs.paginator.num_pages }}.
+					            Page {{ jobs.number }} of {{ jobs.paginator.num_pages }}
 					        </span>
 
 					        {% if jobs.has_next %}
