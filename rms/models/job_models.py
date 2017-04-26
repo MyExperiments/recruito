@@ -17,6 +17,7 @@ class Job(AbstractBaseModel):
     designation = models.CharField(max_length=100, default='')
     keywords = models.CharField(max_length=150, blank=True)
     job_location = models.CharField(max_length=200, blank=True)
+    experience_required = models.CharField()
 
     def __str__(self):
         return self.title
