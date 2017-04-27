@@ -14,4 +14,4 @@ class UserProfile(AbstractBaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
