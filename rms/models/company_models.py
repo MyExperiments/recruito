@@ -11,11 +11,12 @@ class IndustryType(AbstractBaseModel):
     def __str__(self):
         return self.name
 
-class Recruiter(AbstractBaseModel):
+class Company(AbstractBaseModel):
     """
     Recruiter
     """
     name = models.CharField('Name', max_length=100)
+    about = models.TextField('About')
     address = models.CharField('Address', max_length=200)
     country = models.CharField('Country', max_length=100)
     city = models.CharField('District', max_length=100)
@@ -27,12 +28,12 @@ class Recruiter(AbstractBaseModel):
     def __str__(self):
         return self.name
 
-class RecruiterUser(AbstractBaseModel):
+class CompanyUser(AbstractBaseModel):
     """
     RecruiterUser
     """
-    recruiter = models.ForeignKey(Recruiter, on_delete=models.CASCADE, null=False)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
-        return self.recruiter.name + "-" + self.user.username
+        return self.company.name + "-" + self.user.username

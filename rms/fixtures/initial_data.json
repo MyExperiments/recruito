@@ -1,0 +1,130 @@
+[
+    {
+        "model": "rms.skill",
+        "pk": 1,
+        "fields": {
+            "name": "ROR"
+        }
+    },
+    {
+        "model": "rms.skill",
+        "pk": 2,
+        "fields": {
+            "name": "Django"
+        }
+    },
+    {
+        "model": "rms.skill",
+        "pk": 3,
+        "fields": {
+            "name": "Angular"
+        }
+    },
+    {
+        "model": "rms.designation",
+        "pk": 1,
+        "fields": {
+            "name": "Engineer"
+        }
+    },
+    {
+        "model": "rms.designation",
+        "pk": 2,
+        "fields": {
+            "name": "Senior Engineer"
+        }
+    },
+    {
+        "model": "rms.designation",
+        "pk": 3,
+        "fields": {
+            "name": "Lead Engineer"
+        }
+    },
+    {
+        "model": "rms.IndustryType",
+        "pk": 1,
+        "fields": {
+            "name": "IT Services"
+        }
+    },
+    {
+        "model": "rms.company",
+        "pk": 1,
+        "fields": {
+            "name": "Qburst",
+            "about": "IT",
+            "address": "-2 Thejaswini",
+            "country": "India",
+            "city": "Trivandrum",
+            "state": "Kerala",
+            "zipcode": "695581",
+            "phone_number": "111111111111",
+            "industry_type": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "sufinsha",
+            "first_name": "Sufinsha ",
+            "last_name": "Musthafa",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$36000$UWejsfDYJLal$KSORh/diXSTl6tdQlmuSE7Fpqzh7L9we1v7jp9vO/h8=",
+            "email": "sufinsha@gmail.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "candidate",
+            "first_name": "candidate ",
+            "last_name": "candidate",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$36000$UWejsfDYJLal$KSORh/diXSTl6tdQlmuSE7Fpqzh7L9we1v7jp9vO/h8=",
+            "email": "sufinsha+candidate@gmail.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "recruiter",
+            "first_name": "recruiter ",
+            "last_name": "recruiter",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$36000$UWejsfDYJLal$KSORh/diXSTl6tdQlmuSE7Fpqzh7L9we1v7jp9vO/h8=",
+            "email": "sufinsha+recruiter@gmail.com"
+        }
+    },
+    {
+        "model": "rms.UserProfile",
+        "pk": 1,
+        "fields": {
+            "user": 3,
+            "role": "recruiter"
+        }
+    },
+    {
+        "model": "rms.CompanyUser",
+        "pk": 1,
+        "fields": {
+            "user": 3,
+            "company": 1
+        }
+    }
+]
