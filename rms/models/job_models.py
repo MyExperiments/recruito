@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.contrib.auth.models import User
+from datetime import date
 from .company_models import Company
 from .standalone_models import Skill, Designation
 from .base_models import AbstractBaseModel
@@ -28,3 +29,8 @@ class Job(AbstractBaseModel):
 
     def __str__(self):
         return self.title
+
+    def is_expired(self):
+        if date.today() > self.last_date:
+            return True
+

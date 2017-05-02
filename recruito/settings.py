@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'jquery',
     'bootstrap3',
     RECRUITO_APPS['rms']
@@ -129,3 +130,5 @@ STATICFILES_DIRS = [
 
 # Redirect to home page after successfull sign in
 LOGIN_REDIRECT_URL = 'home'
+
+LOGGING = LOGGING_CONFIG

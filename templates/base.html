@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/home">Home</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/rms/jobs">Jobs</a></li>
+                        <li><a href="{% url 'all_jobs' %}">Jobs</a></li>
                     </ul>
                     {% if user.is_authenticated %}
                     <ul class="nav navbar-nav navbar-right">

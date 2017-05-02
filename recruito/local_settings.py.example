@@ -5,3 +5,26 @@ DEFAULT_DATABASE_CONFIG = {
     'PASSWORD': 'db_password',
     'HOST': 'db_host'
 }
+
+# Enable the following for logging in Development environment only
+LOGGING_CONFIG = {
+    'version': 1,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        }
+    }
+}
