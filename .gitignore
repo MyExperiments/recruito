@@ -6,4 +6,4 @@ __pycache__
 rms/models/__pycache__/*
 rms/views/__pycache__/*
 rms/utils/__pycache__/*
-recruito/local_settings.py
+recruito/settings/config.json

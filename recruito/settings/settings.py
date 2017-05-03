@@ -11,19 +11,34 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from . import local_settings;
+import json
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+with open(BASE_DIR + '/settings/config.json') as f:
+    configs = json.loads(f.read())
+
+def get_env_var(setting, configs=configs):
+    try:
+        val = configs[setting]
+        if val == 'True':
+            val = True
+        elif val == 'False':
+            val = False
+        return val
+    except KeyError:
+        error_msg = "ImproperlyConfigured: Set {0} environment      variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g_l5_er-k!if_+%=t$h5s@9-!dcjg_!as*fha6^5wrvy6m(rba'
+SECRET_KEY = get_env_var("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_env_var("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -77,14 +92,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'recruito.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': local_settings.DEFAULT_DATABASE_CONFIG
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -128,7 +135,17 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
+# Database
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+DATABASES = {
+    'default': {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "recruito_development",
+        "USER": "pg_user",
+        "PASSWORD": "qburst",
+        "HOST": "localhost"
+    }
+}
+
 # Redirect to home page after successfull sign in
 LOGIN_REDIRECT_URL = 'home'
-
-LOGGING = LOGGING_CONFIG

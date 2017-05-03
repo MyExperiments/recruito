@@ -1,0 +1,11 @@
+{
+    "SECRET_KEY" : "g_l5_er-k!if_+%=t$h5s@9-!dcjg_!as*fha6^5wrvy6m(rba",
+    "DEFAULT_DATABASE_CONFIG" : {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "",
+        "USER": "",
+        "PASSWORD": "",
+        "HOST": ""
+    },
+    "DEBUG" : "True"
+}

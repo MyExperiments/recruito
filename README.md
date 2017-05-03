@@ -11,12 +11,18 @@ Recruito
 - clone project repository: git clone repo-url
 - move to project root: cd recruito
 - Run: pip install -r requirements.txt
-- Run: cp local_settings.py.example local_settings.py
-- Modify local_settings.py to reflect your system level configurations
+- Run: cp recruito/settings/config.json.example recruito/settings/config.json
+  config.json contains system level configurations. The settings files (settings.py and settings/development.py or settings/production.py) works on the basis of
+  values configured in config.json
 - Create database - Follow naming convention recruito_environment_name for
   database name (eg: recruito_development)
   For creating database in postgres - Run: sudo -u postgres createdb -O user_name database_name
 - Run: python manage.py migrate
+- Specify the settings file to be used while starting the server. For example:
+  To start the application in development environment, Run:
+  python manage.py runserver --settings=recruito.settings.development
+  To start the application in production environment, Run:
+  python manage.py runserver --settings=recruito.settings.production
 
 ## Coding Standards
 - Follow pep-8 standards
